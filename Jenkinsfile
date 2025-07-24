@@ -23,6 +23,8 @@
 
     post {
         always {
+            echo "inside post always block"
+            sh "docker ps"
             sh "docker compose -f grid.yaml down"
             sh "docker compose -f test-suites.yaml down"
         }
