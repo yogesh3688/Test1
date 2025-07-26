@@ -30,7 +30,7 @@
         always {
             echo "inside post always block"
             sh "docker ps"
-            archiveArtifacts artifacts: '/output/yogesh-selenium-output/emailable-report.html',followSymlinks: false
+            archiveArtifacts artifacts: 'output/yogesh-selenium-output/emailable-report.html',followSymlinks: false
             sh "docker compose -f grid.yaml down"
             sh "docker compose -f test-suites.yaml down"
         }
