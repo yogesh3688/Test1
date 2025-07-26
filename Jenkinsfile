@@ -19,7 +19,7 @@
 
         stage('Run Test'){
             steps {
-                sh "docker compose -f test-suites.yaml up --pull=always"
+                sh "docker compose -f test-suites.yaml up -pull=always"
                 script{
                     if(fileExists('output/yogesh-selenium-output/testng-failed.xml')){
                         error('failed tests found')
