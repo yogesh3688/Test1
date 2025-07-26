@@ -2,12 +2,17 @@
 
     agent any
 
+    parameters {
+  choice choices: ['firefox', 'chrome'], description: 'Select Browser', name: 'BROWSER'
+}
+
+
     stages {
 
         stage('Start Grid'){
             steps {
                 echo "Start Grid triigred"
-                sh "docker compose -f grid.yaml up -d"
+                sh "docker compose -f grid.yaml up --scale ${params.BROWSER}=2  -d"
             
             }
         }
